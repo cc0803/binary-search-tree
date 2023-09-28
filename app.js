@@ -10,14 +10,17 @@ function buildBST(arr) {
 }
 
 // Creates BST from sorted Array
-function createBST(arr, start, end) {
-	if (start > end) return null;
+function createBST(arr) {
+	if (arr.length == 1) return null;
 
-	let mid = Math.floor((start + end) / 2);
-	let root = treeNode(arr[mid - 1]);
+	let mid = Math.floor(arr.length / 2);
+	let root = treeNode(arr[mid]);
 
-	root.left = createBST(arr, start, mid - 1);
-	root.right = createBST(arr, mid + 1, end);
+	let rightPart = arr.splice(mid);
+	let leftPart = arr;
+
+	root.left = createBST(leftPart);
+	root.right = createBST(rightPart);
 
 	return root;
 }
@@ -48,9 +51,22 @@ function compareTwo(left, right) {
 	return array.concat(left, right);
 }
 
+const prettyPrint = (node, prefix = "", isLeft = true) => {
+	if (node === null) {
+		return;
+	}
+	if (node.right !== null) {
+		prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+	}
+	console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+	if (node.left !== null) {
+		prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+	}
+};
+
 let array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let array2 = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
-let tree = createBST(array, array[0], array[array.length - 1]);
+let tree2 = buildBST(array2);
 
-console.log(tree);
+prettyPrint(tree2);
