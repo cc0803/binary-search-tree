@@ -1,4 +1,4 @@
-import mergeSort from "./mergeSort";
+import mergeSort from "./mergeSort.js";
 
 function treeNode(value) {
 	(this.data = value), (this.left = null), (this.right = null);
