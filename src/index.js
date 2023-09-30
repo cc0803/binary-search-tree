@@ -1,4 +1,5 @@
 import mergeSort from "./mergeSort.js";
+import { insert } from "./insertDelete.js";
 
 function treeNode(value) {
 	let data = value;
@@ -47,6 +48,7 @@ let array2 = [
 ];
 
 let tree2 = buildBST(array2);
-console.log(tree2);
+insert(treeNode(12), tree2);
+insert(treeNode(23), tree2);
 
 prettyPrint(tree2);
