@@ -1,5 +1,5 @@
 import mergeSort from "./mergeSort.js";
-import { insert } from "./insertDelete.js";
+import { insert, findNode } from "./insertDeleteFind.js";
 
 function treeNode(value) {
 	let data = value;
@@ -50,5 +50,6 @@ let array2 = [
 let tree2 = buildBST(array2);
 insert(treeNode(12), tree2);
 insert(treeNode(23), tree2);
+console.log(findNode(15, tree2));
 
 prettyPrint(tree2);

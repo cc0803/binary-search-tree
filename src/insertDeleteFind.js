@@ -27,3 +27,29 @@ export function insert(node, root) {
 
 	return root;
 }
+
+export function deleteNode(node, root) {}
+
+function deleteLeafNode(node, root) {}
+
+export function findNode(value, root) {
+	// while root.data !== value
+	// if root.data > value && root.left !== null: root = root.left;
+	// else return null
+	// if root.data < value && root.right !== null: root = root.right;
+	// else return null
+	// return root
+
+	while (root.data !== value) {
+		if (root == null) {
+			return "not found";
+		} else if (root.data > value) {
+			root = root.left;
+			continue;
+		} else if (root.data < value) {
+			root = root.right;
+			continue;
+		}
+	}
+	return root;
+}
