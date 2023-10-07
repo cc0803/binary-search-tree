@@ -1,10 +1,4 @@
 export function insert(node, root) {
-	/*
-    if root < node && left != null  --> go left
-    else if root > node &&  right != null --> go right
-    else if root >node && right == null --> root.right = node
-    else if root < node && left == null --> root.left = node;
-    */
 	if (root.data == node.data) {
 		return root;
 	}
@@ -28,27 +22,64 @@ export function insert(node, root) {
 	return root;
 }
 
-export function deleteNode(node, root) {}
+export function deleteNode(value, root) {
+	// check if note is in tree and a number
+	let node = findNode(value, root);
+	if (node == null || isNaN(value)) {
+		return root;
+	}
 
-function deleteLeafNode(node, root) {}
+	let parent = findParentNode(value, root);
+
+	if (node.left == null && node.right == null) {
+		// check if Leafnode is only node in tree;
+		if (parent == null) {
+			return null;
+		}
+		deleteLeafNode(value, parent);
+	} else if (node.left == null || node.right == null) {
+		//deleteNodeOneChild(value, parent);
+	}
+}
+
+function deleteLeafNode(value, root) {
+	if (value > root.data) {
+		root.right = null;
+	} else {
+		root.left = null;
+	}
+	return root;
+}
 
 export function findNode(value, root) {
-	// while root.data !== value
-	// if root.data > value && root.left !== null: root = root.left;
-	// else return null
-	// if root.data < value && root.right !== null: root = root.right;
-	// else return null
-	// return root
-
 	while (root.data !== value) {
 		if (root == null) {
-			return "not found";
+			return null;
 		} else if (root.data > value) {
 			root = root.left;
 			continue;
 		} else if (root.data < value) {
 			root = root.right;
 			continue;
+		}
+	}
+	return root;
+}
+
+function findParentNode(value, root) {
+	while (root !== null) {
+		if (root.data > value) {
+			if (root.left.data == value) {
+				return root;
+			} else {
+				root = root.left;
+			}
+		} else {
+			if (root.right.data == value) {
+				return root;
+			} else {
+				root = root.right;
+			}
 		}
 	}
 	return root;
