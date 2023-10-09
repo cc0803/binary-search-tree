@@ -32,13 +32,13 @@ export function deleteNode(value, root) {
 	let parent = findParentNode(value, root);
 
 	if (node.left == null && node.right == null) {
-		// check if Leafnode is only node in tree;
+		// check if Leafnode is only node in tree
 		if (parent == null) {
 			return null;
 		}
 		deleteLeafNode(value, parent);
 	} else if (node.left == null || node.right == null) {
-		//deleteNodeOneChild(value, parent);
+		deleteNodeOneChild(value, parent);
 	}
 }
 
@@ -83,4 +83,25 @@ function findParentNode(value, root) {
 		}
 	}
 	return root;
+}
+
+function deleteNodeOneChild(value, root) {
+	let node = findNode(value, root);
+
+	// Check on which side of the parent the node is
+	if (root.right == node) {
+		if (node.right == null) {
+			root.right = node.left;
+		} else {
+			root.right = node.right;
+		}
+		return root;
+	} else {
+		if (node.left == null) {
+			root.left = node.right;
+		} else {
+			root.left = node.left;
+		}
+		return root;
+	}
 }
