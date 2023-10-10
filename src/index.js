@@ -29,7 +29,7 @@ function createBST(arr) {
 	return root;
 }
 
-const prettyPrint = (node, prefix = "", isLeft = true) => {
+export const prettyPrint = (node, prefix = "", isLeft = true) => {
 	if (node === null) {
 		return;
 	}
@@ -50,8 +50,8 @@ let array2 = [
 let tree2 = buildBST(array2);
 insert(treeNode(12), tree2);
 insert(treeNode(23), tree2);
-console.log(findNode(15, tree2));
-deleteNode(9, tree2);
-deleteNode(12, tree2);
+// console.log(findNode(15, tree2));
 
-prettyPrint(tree2);
+let tree3 = deleteNode(15, tree2);
+
+prettyPrint(tree3);
