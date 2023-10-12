@@ -14,3 +14,18 @@ export function levelOrder(root, callback) {
 	// If no callback return array
 	if (!callback) return arr;
 }
+
+export function inorder(root, arr = []) {
+	if (!root) return arr;
+
+	if (root.left) {
+		inorder(root.left, arr);
+	}
+	arr.push(root.data);
+
+	if (root.right) {
+		inorder(root.right, arr);
+	}
+
+	return arr;
+}
