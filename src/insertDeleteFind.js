@@ -1,5 +1,3 @@
-import { prettyPrint } from ".";
-
 export function insert(node, root) {
 	if (root.data == node.data) {
 		return root;

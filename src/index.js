@@ -1,5 +1,6 @@
 import mergeSort from "./mergeSort.js";
 import { insert, findNode, deleteNode } from "./insertDeleteFind.js";
+import { levelOrder } from "./levelOrder.js";
 
 function treeNode(value) {
 	let data = value;
@@ -53,5 +54,6 @@ insert(treeNode(23), tree2);
 // console.log(findNode(15, tree2));
 
 let tree3 = deleteNode(15, tree2);
+console.log(levelOrder(tree3));
 
 prettyPrint(tree3);
