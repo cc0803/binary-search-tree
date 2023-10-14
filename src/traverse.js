@@ -21,11 +21,33 @@ export function inorder(root, arr = []) {
 	if (root.left) {
 		inorder(root.left, arr);
 	}
+
 	arr.push(root.data);
 
 	if (root.right) {
 		inorder(root.right, arr);
 	}
 
+	return arr;
+}
+
+export function preorder(root, arr = []) {
+	if (!root) return arr;
+	else {
+		arr.push(root.data);
+		preorder(root.left, arr);
+		preorder(root.right, arr);
+	}
+
+	return arr;
+}
+
+export function postorder(root, arr = []) {
+	if (!root) return arr;
+	else {
+		postorder(root.left, arr);
+		postorder(root.right, arr);
+		arr.push(root);
+	}
 	return arr;
 }

@@ -1,6 +1,6 @@
 import mergeSort from "./mergeSort.js";
 import { insert, findNode, deleteNode } from "./insertDeleteFind.js";
-import { levelOrder, inorder } from "./traverse.js";
+import { levelOrder, inorder, preorder, postorder } from "./traverse.js";
 
 function treeNode(value) {
 	let data = value;
@@ -56,5 +56,7 @@ insert(treeNode(23), tree2);
 let tree3 = deleteNode(15, tree2);
 console.log(levelOrder(tree3));
 console.log(inorder(tree3));
+console.log(preorder(tree3));
+console.log(postorder(tree3));
 
 prettyPrint(tree3);
