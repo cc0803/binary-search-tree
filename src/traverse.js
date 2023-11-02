@@ -47,7 +47,7 @@ export function postorder(root, arr = []) {
 	else {
 		postorder(root.left, arr);
 		postorder(root.right, arr);
-		arr.push(root);
+		arr.push(root.data);
 	}
 	return arr;
 }

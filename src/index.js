@@ -1,6 +1,7 @@
 import mergeSort from "./mergeSort.js";
 import { insert, findNode, deleteNode } from "./insertDeleteFind.js";
 import { levelOrder, inorder, preorder, postorder } from "./traverse.js";
+import { height } from "./heightDepth.js";
 
 function treeNode(value) {
 	let data = value;
@@ -12,7 +13,7 @@ function treeNode(value) {
 // takes array as input sorts it and creates BST
 function buildBST(arr) {
 	let sorted = mergeSort(arr);
-	return createBST(sorted, sorted[0], sorted[sorted.length - 1]);
+	return createBST(sorted);
 }
 
 // Creates BST from sorted Array
@@ -58,5 +59,6 @@ console.log(levelOrder(tree3));
 console.log(inorder(tree3));
 console.log(preorder(tree3));
 console.log(postorder(tree3));
+console.log(height(12, tree3));
 
 prettyPrint(tree3);
