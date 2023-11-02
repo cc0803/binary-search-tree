@@ -1,4 +1,4 @@
-export function height(value, root) {
+export function depth(value, root) {
 	// define iterator
 	let iterator = 1;
 
@@ -16,3 +16,5 @@ export function height(value, root) {
 	}
 	return iterator;
 }
+
+export function height() {}
