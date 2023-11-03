@@ -59,6 +59,10 @@ function deleteLeafNode(value, root) {
 	return root;
 }
 
+/*
+	finds the node for a given value
+	RETURN either node or null
+*/
 export function findNode(value, root) {
 	while (root.data !== value) {
 		if (root == null) {

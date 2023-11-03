@@ -1,6 +1,8 @@
+import { findNode } from "./insertDeleteFind";
+
 export function depth(value, root) {
 	// define iterator
-	let iterator = 1;
+	let iterator = 0;
 
 	// loop until root == node and iterator++
 	while (root.data != value) {
@@ -17,4 +19,34 @@ export function depth(value, root) {
 	return iterator;
 }
 
-export function height() {}
+/* 
+	Function returns height or -1 if value not in tree
+*/
+export function height(value, root) {
+	let node = findNode(value, root);
+
+	if (!node) {
+		return -1;
+	}
+
+	return heightHelper(node);
+}
+
+function heightHelper(node) {
+	if (node == null) {
+		return -1;
+	}
+
+	let left = heightHelper(node.left);
+	let right = heightHelper(node.right);
+
+	return max(left, right) + 1;
+}
+
+function max(n1, n2) {
+	if (n1 >= n2) {
+		return n1;
+	} else {
+		return n2;
+	}
+}
