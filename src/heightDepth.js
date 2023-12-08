@@ -50,3 +50,17 @@ function max(n1, n2) {
 		return n2;
 	}
 }
+
+// isBalanced Function
+
+export function isBalanced(root) {
+	let rightHeight = height(root.right.data, root);
+	let leftHeight = height(root.left.data, root);
+	let difference = Math.abs(rightHeight - leftHeight);
+
+	if (difference > 1) {
+		return false;
+	} else {
+		return true;
+	}
+}

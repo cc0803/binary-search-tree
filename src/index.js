@@ -1,7 +1,7 @@
 import mergeSort from "./mergeSort.js";
 import { insert, findNode, deleteNode } from "./insertDeleteFind.js";
 import { levelOrder, inorder, preorder, postorder } from "./traverse.js";
-import { depth, height } from "./heightDepth.js";
+import { depth, height, isBalanced } from "./heightDepth.js";
 
 function treeNode(value) {
 	let data = value;
@@ -61,5 +61,6 @@ console.log(preorder(tree3));
 console.log(postorder(tree3));
 console.log(depth(3, tree3));
 console.log(height(8, tree3));
+console.log(isBalanced(tree3));
 
 prettyPrint(tree3);
