@@ -31,6 +31,13 @@ function createBST(arr) {
 	return root;
 }
 
+// Balance unbalanced tree
+function balanceTree(root) {
+	let arr = inorder(root);
+	let tree = createBST(arr);
+	return tree;
+}
+
 export const prettyPrint = (node, prefix = "", isLeft = true) => {
 	if (node === null) {
 		return;
@@ -61,6 +68,13 @@ console.log(preorder(tree3));
 console.log(postorder(tree3));
 console.log(depth(3, tree3));
 console.log(height(8, tree3));
-console.log(isBalanced(tree3));
+insert(treeNode(1), tree2);
+insert(treeNode(2), tree2);
+insert(treeNode(13), tree2);
+insert(treeNode(14), tree2);
+console.log(isBalanced(tree2));
 
 prettyPrint(tree3);
+prettyPrint(tree2);
+
+prettyPrint(balanceTree(tree2));
